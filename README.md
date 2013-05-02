@@ -12,4 +12,5 @@ My code for the directory portion of the exam and the partial tests are in the D
 Thank you for your time, consideration and opportunity to interview.  I hope my code here is enough to give you a good idea of how I think and how I approach coding problems.
 
 Sincerely,
+
 Glen Baker
