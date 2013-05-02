@@ -1,4 +1,5 @@
 Dear Beachmint,
+
 I've spent the past 3 nights working this problem in Python.  I solved the jewelry app section of the test.  Please view my code within the jewelry app and template folders.
 
 You may view a live demo of the jewelry application at:
