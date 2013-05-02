@@ -1,6 +1,6 @@
 Dear Beachmint,
 
-I didn't know very much PHP when I received the test on Wednesday night and I was under the impression that I was expected to do the exam in PHP.  So, I spent the first 5 days I had with this test watching PHP training videos through USC and lynda.com.  I received the ok to do the app in Python on Monday.  I was told to get this test sent in this week, so I've done my best with the past 3 nights of coding.
+I didn't know very much PHP when I received the test on Wednesday night and I was under the impression that I was expected to do the exam in PHP.  So, I spent the first 5 days I had with this test watching PHP training videos through USC and lynda.com.  I received the ok to do the app in Python on Monday.  So, I've done my best with the past 3 nights of coding.
 
 I solved the [jewelry app](https://github.com/iepathos/beachmint/tree/master/jewelry) section of the test.  Please view my code within the jewelry app and [template](https://github.com/iepathos/beachmint/tree/master/templates/jewelry) folders.  You may view a live demo of the jewelry application at:
 https://whois-iepathos.rhcloud.com/jewelry/
