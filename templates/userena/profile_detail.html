@@ -1,0 +1,67 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% load gravatar %}
+
+{% block title %}{% blocktrans with profile.user.username as username %}{{ username }}'s profile{% endblocktrans %} - {{ block.super }}{% endblock %}
+
+{% block content_title %}
+
+  {% if request.user == profile.user %} 
+    <a href='http://gravatar.com/emails/'>
+      <img src="{% gravatar_url profile.user.email 400 %}" alt="{% trans 'Change your avatar at gravatar.com' %}">
+    </a>
+  {% else %}
+    <a href='http://gravatar.com/'>
+      <img src="{% gravatar_url profile.user.email 400 %}" alt="{% trans 'Avatars hosted on gravatar.com' %}">
+    </a>
+  {% endif %}
+</a>
+
+<h2 style='margin:0;'>{% if profile.user.get_full_name %}{{ profile.user.get_full_name }}{% endif %}</h2>
+<h3 style='color:grey; margin:0;'> {{ profile.user.username }} </h3>{% endblock %}
+
+{% block content %}
+  <div class="span12 white-box">
+    {% block profile_navigation %}
+      {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
+      {% if user.username == profile.user.username %}
+        <ul class='span2 pull-right' id="box-nav">
+          {% block profile_navigation_items %}
+            <li><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></li>
+          {% endblock %}
+        </ul>
+      {% endif %}
+    {% endblock %}
+
+    <div id="details">
+      {% block profile_details %}
+        <dl>
+          {% block profile_definition_list %}
+            {% if profile.user.email and not hide_email %}
+              <dt>{% trans "Email" %}</dt>
+              <dd>{{ profile.user.email }}</dd>
+            {% endif %}
+            {% if profile.age %}
+              <dt>{% trans "Age" %}</dt>
+              <dd>{{ profile.age }}</dd>
+            {% endif %}
+            {% if profile.website %}
+              <dt>{% trans "Website" %}</dt>
+              <dd>{{ profile.website|urlize }}</dd>
+            {% endif %}
+            {% if profile.location %}
+              <dt>{% trans "Location" %}</dt>
+              <dd>{{ profile.location }}</dd>
+            {% endif %}
+            {% if profile.about_me %}
+              <dt>{% trans "About me" %}</dt>
+              <dd>{{ profile.about_me }}</dd>
+            {% endif %}
+          {% endblock %}
+        </dl>
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,75 @@
+from django.db import models
+from datetime import datetime
+from django.contrib.auth.models import User
+from django.utils.translation import ugettext as _
+from core.models import BaseModel # BaseModel just provides creation and modified timestamps
+
+import os
+
+from settings import BASE_DIRECTORY_PATH
+
+from django.core.files.storage import FileSystemStorage
+
+fs = FileSystemStorage(location='/media/directory')
+
+
+class Acme(BaseModel):
+	name = models.CharField(_('Name'), max_length=255)
+	path = models.CharField(_('Path'), max_length=255)
+
+	owner = models.ForeignKey(User)
+
+	def clean_name(self):
+
+
+	def clean_path(self):
+
+	def rename(self):
+		#os.rename(src, dst)
+
+	class Meta:
+		abstract = True # No actual Acme types just Files and Folders
+
+class File(Acme):
+	content = models.TextField(_('Content'), blank=True)
+	content_upload = models.FileField(blank=True, storage=fs)
+	isDir = models.BooleanField(_('isDir'), default=False, editable=False)
+
+	def __init__(self, name, path):
+
+	def isDir(self):
+		return os.path.isdir(self.path)
+
+	def read(self):
+		""" Reads file at path and name """
+		file = open(BASE_DIRECTORY_PATH + 'self.path' + '/' + 'self.name', 'r+')
+		return file.read()
+
+	def update(self):
+
+	def delete(self):
+
+	class Meta:
+		abstract = False
+
+
+
+class Folder(Acme):
+	isDir = models.BooleanField(_('isDir'), default=True, editable=False)
+
+	def __init__(self, name, path):
+		# makedirs makes needed leafs recursively unlike mkdir
+		os.makedirs(os.path.join(BASE_DIRECTORY_PATH, 'path', 'name')
+
+	def read(self):
+		return os.listdir(os.path.join(BASE_DIRECTORY_PATH, self.path, self.name))
+
+	def update(self):
+
+
+	def delete(self):
+		# I have to make sure this is safe to use
+		#os.removedirs()
+
+	class Meta:
+		abstract = False

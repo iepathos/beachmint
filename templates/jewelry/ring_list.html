@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block title %}Ring List{% endblock %}
+
+{% block content %}
+<h2>Rings</h2>
+<a href="{% url 'jewelry_list' %}">Back to Jewelry list</a>
+<hr>
+<ul>
+{% for ring in ring_list %}
+	<li>Ring - <a href="{% url 'ring_detail' ring.pk %}">Size:{{ ring.size }}, Weight:{{ ring.weight }}, Price:{{ ring.price }}, Color:{{ ring.color }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

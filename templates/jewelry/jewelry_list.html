@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{{ block.super }} :: {% trans 'Jewelry' %}{% endblock %}
+
+{% block extra_head %}
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jewelry.css">
+{% endblock %}
+
+{% block content %}
+<h2>Jewelry App</h2>
+<div class='jewelry_app_description'>
+	<p>This app is my solution to the second part of Beachmint's technical exam.</p>
+	<div class='well'>
+		<h4>My instructions:</h4>
+		<p>
+		  - Create a class hierarchy involving:</p>
+		<p> 
+		  * Jewelry with children of ring, necklace and bracelet.
+		</p> 
+		 
+		<p>* Create attributes size, weight, price, color.</p>
+		<p>* Implement method "wash" on each kind of object (ring, necklace & bracelet). The "wash" method would be different on each one.</p>
+	</div>
+</div>
+
+<div class='row-fluid jewelry_lists'>
+<div class='jewelry_rings span4'>
+	<ul>
+		<h3><a href="{% url 'ring_list' %}">Rings</a></h3>
+		<h4 class='create_link'><a href="{% url 'ring_create' %}">>Create new ring</a></h4>
+
+	{% for ring in rings %}
+		<li>Ring - <a href="{% url 'ring_detail' ring.pk %}">Size:{{ ring.size }}, Weight:{{ ring.weight }}, Price:{{ ring.price }}, Color:{{ ring.color }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div class='jewelry_necklaces span4'>
+	<ul>
+		<h3><a href="{% url 'necklace_list' %}">Necklaces</a></h3>
+		<h4><a href="{% url 'necklace_create' %}">>Create new necklace</a></h4>
+
+	{% for necklace in necklaces %}
+		<li>Necklace - <a href="{% url 'necklace_detail' necklace.pk %}">Size:{{ necklace.size }}, Weight:{{ necklace.weight }}, Price:{{ necklace.price }}, Color:{{ necklace.color }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+<div class='jewelry_bracelets span4'>
+	<ul>
+		<h3><a href="{% url 'bracelet_list' %}">Bracelets</a></h3>
+		<h4><a href="{% url 'bracelet_create' %}">>Create new bracelet</a></h4>
+
+	{% for bracelet in bracelets %}
+		<li>Bracelet - <a href="{% url 'bracelet_detail' bracelet.pk %}">Size:{{ bracelet.size }}, Weight:{{ bracelet.weight }}, Price:{{ bracelet.price }}, Color:{{ bracelet.color }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+</div>
+{% endblock %}

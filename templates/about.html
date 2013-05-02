@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block title %}{{ block.super }} :: {% trans 'About' %}{% endblock %}
+
+{% block extra_head %}
+<link href="{{ STATIC_URL }}css/zocial.css" rel='stylesheet'>
+{% endblock %}
+
+{% block content %}
+
+    <h2>About Me</h2>
+    <hr>
+    <div class='span6'>
+	    <p>
+	    	I love music, literature and programming.  Python is my favorite language.  I love how elegant Python solutions often are.  I live in Los Angeles, CA.  I'm happily pursuing a career in web development. Interested in startups and learning. 
+	    </p>
+	    <p>
+	    	I've been studying and working with Python since early 2012.  Django is the Python web framework that I have spent my time learning.  I highly recommend 2 Scoops of Django by Daniel Greenfield and Audrey Roy for anyone interested in learning or improving their Django based projects.  It has changed the way I do just about everything in my projects for the better.    
+	    </p>
+	</div>
+	<div class='span5'>
+	    <p>
+	    	<button class="zocial github" onClick="window.open('https://github.com/iepathos')">{% trans 'View my Git' %}</button>
+	    </p>
+	    <p>
+	    	<button class="zocial linkedin" onClick="window.open('https://linkedin.com/in/glenbbaker')">{% trans 'View my Linkedin' %}</button>
+	    </p>
+
+	</div>
+
+{% endblock %}

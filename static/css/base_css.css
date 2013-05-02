@@ -1,0 +1,206 @@
+/* 
+  CSS for whois-iepathos.rhcloud.com 
+  Written by Glen Baker - iepathos@gmail.com
+*/
+
+/* 
+      GLOBAL STYLING
+*/
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+  background: url('../img/bluetexture.jpg') repeat;
+}
+    
+footer {
+  display: block;
+  position:relative;
+  bottom: -40px;
+  margin-bottom: 20px;
+}
+
+.messages {
+  color: #669966;
+}
+
+.scrollup {
+  width:40px;
+  height:40px;
+  opacity:0.3;
+  position:fixed;
+  bottom:30px;
+  right:20px;
+  display:none;
+  text-indent:-9999px;
+  background: url('../img/icon_top.png') no-repeat;
+}
+
+/* 
+      END GLOBAL STYLING
+*/
+
+/*
+  SOCIAL SIGNIN
+*/
+.social_signin {
+  background-color: #669966;
+  -moz-border-radius: 4px; /* FireFox 1+ */
+  -webkit-border-radius: 4px; /* Safari 3+, Chrome */
+  border-radius: 4px; /* Opera 10.5, IE 9 */
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.social_signin h2 {
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*
+  END SOCIAL SIGNIN
+*/
+
+/* 
+      NAVBAR
+*/
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Remove border and change up box shadow for more contrast */
+.navbar .navbar-inner {
+  border: 0;
+  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+     -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+          box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  background: black;
+  background: rgba(0, 0, 0, 0.75);
+  
+}
+/* Downsize the brand/project name a bit  */
+.navbar .brand {
+  padding: 14px 20px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  color: #FF6600;
+}
+
+/* Navbar links: increase padding for taller navbar */
+.navbar .nav > li > a {
+  padding: 16px 30px;
+
+}
+
+/* Offset the responsive button for proper vertical alignment */
+.navbar .btn-navbar {
+  margin-top: 10px;
+}
+
+.navbar-form {
+  margin-top: 5px;
+}
+
+/* Color for navbar buttons on hover effect on currently active pages
+*/
+
+.navbar-inverse .nav li > a:hover {
+  color: #FF6600;
+}
+
+.brand-colorswitch {
+  color: white;
+}
+
+.brand-colorswitch:hover {
+  color: #FF6600;
+}
+
+/* DROPDOWN MENU STYLING */
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {
+  color: white !important;
+  background-image: none;
+  background-color: #FF6600;
+}
+
+
+/* 
+      END NAVBAR
+*/
+
+
+
+/*
+      SOCIAL AUTHENTICATION
+*/
+
+/*
+      END SOCIAL AUTHENTICATION
+*/
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 979px) {
+
+   .navbar-wrapper {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-top: 20px;
+    margin-bottom: 0;
+    width: auto;
+  }
+  
+   .navbar-inner {
+    border-radius: 0;
+    margin: -20px 0;
+  }
+
+  .social_signin {
+    margin: 0;
+  }
+
+
+
+/* DROPDOWN MENU STYLING */
+.navbar-inverse .nav-collapse .dropdown-toggle:hover,
+.navbar-inverse .nav-collapse .dropdown-toggle:focus {
+  color: #FF6600;
+}
+
+/* DROPDOWN SUB-MENU STYLING */
+.navbar-inverse .nav-collapse .dropdown-menu a:hover,
+.navbar-inverse .nav-collapse .dropdown-submenu:hover a:hover,
+.dropdown-menu li > a:hover, 
+.dropdown-menu li > a:focus, 
+.dropdown-submenu:hover > a {
+  background-image: none;
+  background-color: #FF6600;
+  color: white;
+}
+
+@media (max-width: 767px) {
+
+ .navbar-inner {
+    margin: -20px;
+  }
+
+  footer {
+    font-size: 1em;
+  }
+  
+  footer a {
+   font-size: 1.4em;
+  }	
+
+}

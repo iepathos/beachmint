@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Ring Form{% endblock %}
+
+{% block content %}
+<h2>Ring Form</h2>
+<hr>
+    {% crispy form form.helper %}
+
+{% endblock %}
+
+{% block extra_js %}
+	<script type="text/javascript">
+		$(function() {
+		    $('#id_size').focus()
+		});
+	</script>
+{% endblock %}

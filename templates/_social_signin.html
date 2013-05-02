@@ -1,0 +1,26 @@
+{% load i18n %}
+{% load url from future %}
+
+{% block extra_head %}
+<link href="{{ STATIC_URL }}css/zocial.css" rel='stylesheet'>
+{% endblock %}
+
+<div class='span6  pull-right social_signin'>
+  <h2>{% trans 'Social Sign in' %}</h2>
+  {% if request.user.is_authenticated %}
+      <p>{% trans 'You are already signed in' %}.</p>
+  {% else %}
+      <div style='padding:10px; padding-top: 0;'>
+      <p>We promise not to post to your Twitter or Facebook accounts without your explicit permission.</p>
+      <p>It's easy and free:</p>
+      </div>
+      <p><a class="zocial twitter" href="{% url 'socialauth_begin' 'twitter' %}">{% trans 'Sign in with Twitter' %}</a></p>
+      <p><a class="zocial facebook" href="{% url 'socialauth_begin' 'facebook' %}">{% trans 'Sign in with Facebook' %}</a></p>
+      <p>
+        <a class='zocial google' href="#">{% trans 'Sign in with Google' %}</a>
+      </p>
+      <p>
+        <a class="zocial linkedin" href="#">{% trans 'Sign in with Linkedin' %}</a>
+      </p>
+  {% endif %}
+</div>

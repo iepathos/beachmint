@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+{% load url from future %}
+{% block title %}{{ title }} | {% trans 'whois-iepathos admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'home' %}" title='Back to site' alt='Back to site'>whois-iepathos</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

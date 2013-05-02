@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block title %}Ring Detail{% endblock %}
+
+{% block content %}
+<h2>Ring Detail View</h2>
+<a href="{% url 'jewelry_list' %}">Back to Jewelry</a> >
+<a href="{% url 'ring_list' %}">Back to Rings</a>
+<hr>
+<p><a href="{% url 'ring_update' ring.pk %}">Edit Details</a></p>
+<ul>
+<li>Size: {{ ring.size }}mm</li>
+<li>Weight: {{ ring.weight }}kg</li>
+<li>Price: ${{ ring.price }}</li>
+<li>Color {{ ring.color }}</li>
+</ul>
+
+<h2>Washing Instructions</h2>
+{{ ring.wash }}
+
+{% endblock %}

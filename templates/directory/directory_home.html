@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block title %}Glen Baker : Directory Listing App{% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+<h2>Directory Application</h2>
+<h4>-- non-functional</h4>
+<hr>
+<div class='container-fluid'>
+<div class='row-fluid'>
+	<div class='span3 directory_nav'>
+		Directory Navigation
+		<ul>
+
+			{% for file in files %}
+				{% if file.owner == request.user %}
+					{{ file.name }}
+				{% endif %}
+			{% endfor %}
+			{% for folder in folders %}
+				{% if folder.owner == request.user %}
+					<a href="{{ folder.get_absolute_url }}">{{ folder.name }}</a>
+				{% endif %}
+			{% endfor %}
+
+		</ul>
+	</div>
+	<div class='span9 directory_display'>
+		<h3 style='margin-top: 0;'>Selected Contents Display</h3>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, sint, et aspernatur amet totam optio aliquid perspiciatis eaque ducimus beatae officia atque error reiciendis! Laboriosam, exercitationem adipisci ex suscipit aliquid.</p>
+		<p>Odio harum quaerat repudiandae officia deserunt tempora quod. Quia, rem, incidunt, maiores excepturi possimus est voluptatum neque sunt vel recusandae quo amet debitis error dolore rerum modi earum omnis esse.</p>
+		<p>Harum, minus, dolore, consectetur laudantium laborum saepe veniam illo autem quas suscipit eaque ex quis corporis accusamus sequi ullam culpa nam sit quidem nisi animi dolorum totam molestiae modi fugiat.</p>
+		<p>Omnis, porro veritatis libero odio neque provident ipsam suscipit tempore culpa facilis ducimus doloribus tenetur praesentium eum consequatur minus repellendus. Esse, laudantium repellendus voluptate architecto assumenda in ad distinctio quo.</p>
+	</div>
+</div>
+
+</div>
+
+
+{% endblock %}

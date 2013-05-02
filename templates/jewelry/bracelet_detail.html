@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block title %}Bracelet Detail{% endblock %}
+
+{% block content %}
+<h2>Bracelet Detail View</h2>
+<a href="{% url 'jewelry_list' %}">Back to Jewelry</a> >
+<a href="{% url 'bracelet_list' %}">Back to Bracelets</a>
+<hr>
+<p><a href="{% url 'bracelet_update' bracelet.pk %}">Edit Details</a></p>
+<ul>
+<li>Size: {{ bracelet.size }}mm</li>
+<li>Weight: {{ bracelet.weight }}kg</li>
+<li>Price: ${{ bracelet.price }}</li>
+<li>Color {{ bracelet.color }}</li>
+</ul>
+
+<h2>Washing Instructions</h2>
+{{ bracelet.wash }}
+{% endblock %}

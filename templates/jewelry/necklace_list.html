@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block title %}Necklace List{% endblock %}
+
+{% block content %}
+<h2>Necklaces</h2>
+
+<a href="{% url 'jewelry_list' %}">Back to Jewelry</a>
+<hr>
+<ul>
+{% for necklace in necklace_list %}
+	<li>Necklace - <a href="{% url 'necklace_detail' necklace.pk %}">Size:{{ necklace.size }}, Weight:{{ necklace.weight }}, Price:{{ necklace.price }}, Color:{{ necklace.color }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

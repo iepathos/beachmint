@@ -1,0 +1,14 @@
+{% load i18n %}
+<form class="navbar-form span4.5" action="{% url userena_signin %}" method="post">
+    {% csrf_token %}
+
+    <input class="span2 required" id='id_identification' maxlength='75' name='identification' type="text" placeholder="{% trans Email %}">
+
+      <input class="span2 required" id='id_password' name='password' type="password" placeholder="{% trans Password %}">
+    <button type="submit" class="btn" value='{% trans "Signin" %}'>Sign in</button>
+
+</form>
+
+<script type="text/javascript">
+document.getElementById('id_identification').focus()
+</script>

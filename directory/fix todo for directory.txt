@@ -1,0 +1,25 @@
+# Needed Fixes 
+When a user is created their homedir needs to be created.  It would be nice to have this built into the directory app not the profiles app though, so need some kind of safety check for the homedir.
+
+Creating pathing interface so I can take a database object's path and use it to reference the real file or folder, which should be all that's needed to read out the file or folder to a view.
+
+Need to delete homedir folders and contents when a user is removed.
+
+Need to improve file and folder tests, which I have kept in shell format that I copy-paste from file to shell rather than as an executable unit test.
+
+# Recursive fixes needed
+Need to fix folder recursive delete on the database end.  When a folder is deleted, all of its contents are removed from the filesystem, but the database still has its references to those files or folders.  Need to recursively move children from database folder objects.
+
+Need to fix rename method on folders to recursively rename children paths.
+
+# PHP Transaction Section
+I believe my app currently handles transactions and server rollbacks effectively without me really doing anything.
+
+https://docs.djangoproject.com/en/dev/topics/db/transactions/
+
+I set ATOMIC_REQUESTS = True in settings and my Django handles transactions and rollbacks on a per-request basis.  I can use atomic() in the views to do partial commits and rollbacks.
+
+#for views
+from django.db import transaction
+
+@transaction.atomic

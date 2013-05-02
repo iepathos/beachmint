@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block title %}Log in{% endblock %}
+
+{% block extra_head %}
+<link href="{{ STATIC_URL }}css/zocial.css" rel='stylesheet'>
+{% endblock %}
+
+{% block content %}
+        <h2>Sign in</h2>
+        {% if request.user.is_authenticated %}
+            <p>You are already signed in.</p>
+        {% else %}
+            <p>We promise not to post to your Twitter or Facebook accounts without your explicit permission.</p>
+            <p>It's easy and free:</p>
+            <p><a class="zocial twitter" href="{% url 'socialauth_begin' 'twitter' %}">Sign in with Twitter</a></p>
+            <p><a class="zocial facebook" href="{% url 'socialauth_begin' 'facebook' %}">Sign in with Facebook</a></p>
+            <p>
+            	<a class='zocial google' href="{% url 'socialauth_begin' 'google' %}">Sign in with Google</a>
+            </p>
+            <p>
+            	<a class="zocial linkedin" href="{% url 'socialauth_begin' 'linkedin' %}">Sign in with LinkedIn</a>
+            </p>
+        {% endif %}
+{% endblock %}

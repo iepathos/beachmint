@@ -1,0 +1,33 @@
+<!-- Javascript -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
+
+<!-- Set all img titles to their alt values -->
+<script type='text/javascript'>
+  $(function() {
+    $('img').each( function() {
+      var o = $(this);
+      if( ! o.attr('title') && o.attr('alt') ) o.attr('title', o.attr('alt') );
+    });
+  });
+</script>
+
+<!-- Scroll up icon -->
+<a class='scrollup' href="#">Scroll</a>
+<script type='text/javascript'>
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+        $('.scrollup').fadeIn();
+    } else {
+        $('.scrollup').fadeOut();
+    }
+});
+
+$('.scrollup').click(function() {
+    $("html, body").animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+});
+</script>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block title %}Bracelet List{% endblock %}
+
+{% block content %}
+<h2>Bracelets</h2>
+<a href="{% url 'jewelry_list' %}">Back to Jewelry list</a>
+<hr>
+<ul>
+{% for bracelet in bracelet_list %}
+	<li>Bracelet - <a href="{% url 'bracelet_detail' bracelet.pk %}">Size:{{ bracelet.size }}, Weight:{{ bracelet.weight }}, Price:{{ bracelet.price }}, Color:{{ bracelet.color }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
